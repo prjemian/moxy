@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>491</width>
+    <height>389</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+       <item>
+        <widget class="QLabel" name="logo">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>epicslogo101.bmp</pixmap>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Configure Groups &amp; Positioners</string>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>define the EPICS PV for each part of this positioner</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
+       </property>
+       <widget class="QTreeView" name="treeView"/>
+       <widget class="QWidget" name="verticalLayoutWidget_3">
+        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0">
+         <item>
+          <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="desc">
+             <property name="toolTip">
+              <string>EPICS PV for the description</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="toolTip">
+              <string>EPICS PV that describes the target (commanded) position</string>
+             </property>
+             <property name="text">
+              <string>VAL</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="rbv">
+             <property name="toolTip">
+              <string>EPICS PV for the readback (current) value</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="toolTip">
+              <string>EPICS PV that describes the current readback (actual) position</string>
+             </property>
+             <property name="text">
+              <string>RBV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="val">
+             <property name="toolTip">
+              <string>EPICS PV for the target (commanded) value</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="toolTip">
+              <string>EPICS PV that describes the engineering units</string>
+             </property>
+             <property name="text">
+              <string>EGU</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="toolTip">
+              <string>EPICS PV that describes the positioner</string>
+             </property>
+             <property name="text">
+              <string>DESC</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="egu">
+             <property name="toolTip">
+              <string>EPICS PV for the engineering units</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="toolTip">
+              <string>EPICS PV that says if the positioner is done moving (done=1)</string>
+             </property>
+             <property name="text">
+              <string>DMOV</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="toolTip">
+              <string>EPICS PV that tells the positioner to stop moving (sends a 1)</string>
+             </property>
+             <property name="text">
+              <string>STOP</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="dmov">
+             <property name="toolTip">
+              <string>EPICS PV for the done moving (done=1) value</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QLineEdit" name="stop">
+             <property name="toolTip">
+              <string>EPICS PV for the stop command (sends a 1 to this PV)</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QCheckBox" name="isMotor">
+             <property name="text">
+              <string>VAL is is a motor record</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QPushButton" name="clear">
+             <property name="toolTip">
+              <string>clear all PVs from entry boxes above</string>
+             </property>
+             <property name="text">
+              <string>Clear</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="revert">
+             <property name="toolTip">
+              <string>set all PVs back to previous definition</string>
+             </property>
+             <property name="text">
+              <string>Revert</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+       <property name="centerButtons">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

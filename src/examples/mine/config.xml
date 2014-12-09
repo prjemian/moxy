@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+
+<moxy datetime="2014-06-10 08:35:25" version="3.0">
+  <preferences>
+    <group.SKIP_DELETE_CONFIRMATIONS value="True" />
+    <table.SKIP_DELETE_CONFIRMATIONS value="True" />
+    <row.SKIP_DELETE_CONFIRMATIONS value="True" />
+  </preferences>
+  <group name="m1 m2" selected="True" order="1">
+    <axis name="x" order="1" isMotorRec="True">
+      <field name="VAL" pv="como:m1"/>
+    </axis>
+    <axis name="y" order="2" isMotorRec="False">
+      <field name="VAL"  pv="como:m2.VAL"/>
+      <field name="RBV"  pv="como:m2.RBV"/>
+      <field name="EGU"  pv="como:m2.EGU"/>
+      <field name="DESC" pv="como:m2.DESC"/>
+      <field name="DMOV" pv="como:m2.DMOV"/>
+      <field name="STOP" pv="como:m2.STOP"/>
+    </axis>
+    <table name="test case" selected="True" order="1">
+      <row name="starting position">
+        <position name="x" value="0.40" />
+        <position name="y" value="25.00038" />
+      </row>
+      <row name="0.2 mm above">
+        <position name="x" value="0.40" />
+        <position name="y" value="25.02074" />
+      </row>
+      <row name="0.2 mm below">
+        <position name="x" value="0.40" />
+        <position name="y" value="24.98001" />
+      </row>
+    </table>
+    <table name="table 2" order="2">
+      <row name="">
+        <position name="x" value="" />
+        <position name="y" value="" />
+      </row>
+    </table>
+  </group>
+  <group name="m8 m7 m6" order="2">
+    <axis name="c" order="1" isMotorRec="True"><field name="VAL" pv="como:m8"/></axis>
+    <axis name="b" order="2" isMotorRec="True"><field name="VAL" pv="como:m7"/></axis>
+    <axis name="a" order="3" isMotorRec="True"><field name="VAL" pv="como:m6"/></axis>
+    <table name="table 1" selected="True" order="1">
+      <row name="2014-06-10 08:33:00">
+        <position name="a" value="1" />
+        <position name="b" value="2.7" />
+        <position name="c" value="3.1416" />
+      </row>
+    </table>
+  </group>
+
+<!--
+########### SVN repository information ###################
+# $Date: 2013-07-08 10:30:34 -0500 (Mon, 08 Jul 2013) $
+# $Author: jemian $
+# $Revision: 1407 $
+# $URL: https://subversion.xray.aps.anl.gov/bcdaext/moxy/tags/wxmtxy-0.6-2014-05-29/src/moxy/config-moxy.xml $
+# $Id: config-moxy.xml 1407 2013-07-08 15:30:34Z jemian $
+########### SVN repository information ###################
+-->
+
+</moxy>

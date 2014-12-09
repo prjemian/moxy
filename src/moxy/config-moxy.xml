@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<moxy datetime="2009-04-21 22:42:25" version="2.0">
+  <preferences>
+    <page.SKIP_DELETE_CONFIRMATIONS value="True" />
+    <pos_tab.SKIP_DELETE_CONFIRMATIONS value="True" />
+  </preferences>
+  <AxisSet name="x-y pair" selected="True" order="1">
+    <axis name="x" order="1" isMotorRec="True">
+      <field name="VAL" pv="como:m1"/>
+    </axis>
+    <axis name="y" order="2" isMotorRec="False">
+      <field name="VAL"  pv="como:m2.VAL"/>
+      <field name="RBV"  pv="como:m2.RBV"/>
+      <field name="EGU"  pv="como:m2.EGU"/>
+      <field name="DESC" pv="como:m2.DESC"/>
+      <field name="DMOV" pv="como:m2.DMOV"/>
+      <field name="STOP" pv="como:m2.STOP"/>
+    </axis>
+    <tab name="test case" selected="True" order="1">
+      <row name="starting position">
+        <position name="x" value="0.40" />
+        <position name="y" value="25.00038" />
+      </row>
+      <row name="0.2 mm above">
+        <position name="x" value="0.40" />
+        <position name="y" value="25.02074" />
+      </row>
+      <row name="0.2 mm below">
+        <position name="x" value="0.40" />
+        <position name="y" value="24.98001" />
+      </row>
+    </tab>
+    <tab name="tab 2" order="2">
+      <row name="">
+        <position name="x" value="" />
+        <position name="y" value="" />
+      </row>
+    </tab>
+  </AxisSet>
+</moxy>

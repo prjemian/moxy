@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>27</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>2</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>1</number>
+   </property>
+   <property name="rightMargin">
+    <number>1</number>
+   </property>
+   <property name="bottomMargin">
+    <number>1</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="layout0" stretch="0,2,0,1,0">
+     <property name="spacing">
+      <number>2</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="deleteButton">
+       <property name="toolTip">
+        <string>delete this position set</string>
+       </property>
+       <property name="text">
+        <string>delete</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>12</width>
+         <height>12</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="title">
+       <property name="toolTip">
+        <string>description of this position set</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: bisque;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setButton">
+       <property name="toolTip">
+        <string>set this row from current EPICS readbacks</string>
+       </property>
+       <property name="text">
+        <string>set</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>12</width>
+         <height>12</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="positionersLayout">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="position0">
+         <property name="toolTip">
+          <string>position value</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: bisque;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="goButton">
+       <property name="toolTip">
+        <string>drive to this position set</string>
+       </property>
+       <property name="text">
+        <string>go</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>12</width>
+         <height>12</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
