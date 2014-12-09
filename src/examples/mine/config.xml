@@ -51,15 +51,4 @@
       </row>
     </table>
   </group>
-
-<!--
-########### SVN repository information ###################
-# $Date: 2013-07-08 10:30:34 -0500 (Mon, 08 Jul 2013) $
-# $Author: jemian $
-# $Revision: 1407 $
-# $URL: https://subversion.xray.aps.anl.gov/bcdaext/moxy/tags/wxmtxy-0.6-2014-05-29/src/moxy/config-moxy.xml $
-# $Id: config-moxy.xml 1407 2013-07-08 15:30:34Z jemian $
-########### SVN repository information ###################
--->
-
 </moxy>

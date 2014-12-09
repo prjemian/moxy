@@ -32,12 +32,6 @@ class ConfigureBox(object):
             return          # enforce that this dialog is a singleton
         dialog_showing = True
 
-        # Locate the directory that contains this file.
-        # This will be used to load other file resources
-        # relative to this directory.
-        ref = inspect.getsourcefile(ConfigureBox)
-        self.path = os.path.abspath(os.path.split(ref)[0])
-
         self.ui = form_support.load_form(CONFIGURE_UI_FILE)
         self._init_logo_()
         
@@ -48,5 +42,16 @@ class ConfigureBox(object):
         dialog_showing = False
     
     def _init_logo_(self):
-        logo_file = os.path.join(self.path, 'forms', LOGO_FILE)
+        logo_file = os.path.join(form_support.get_forms_path(), LOGO_FILE)
         self.ui.logo.setPixmap(QtGui.QPixmap(logo_file))
+
+
+if __name__ == '__main__':
+    '''simple test program for developers'''
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    MainWindow = QtGui.QWidget()
+    MainWindow.show()
+    cb = ConfigureBox()
+    #sys.exit(app.exec_())
+    sys.exit()
