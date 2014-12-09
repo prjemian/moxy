@@ -13,7 +13,7 @@ import sys
 sys.path.insert(0, os.path.join('src', ))
 import moxy
 
-requires = ['PySide>=1.2', 'PyEpics>=3.2', 'bcdaqwidgets>=0.1.1']
+requires = moxy.__requires__
 packages = find_packages()
 verbose=1
 long_description = open('README.rst', 'r').read()
@@ -34,10 +34,11 @@ setup (name             = moxy.__package_name__,        # moxy
        package_dir      = {'': 'src'},
        #packages         = find_packages(),
        packages         = [moxy.__package_name__, ],
-       package_data     = dict(moxy=['forms/*', ]),
+       package_data     = dict(moxy=['resources/*', ]),
        classifiers      = moxy.__classifiers__,
        entry_points={
           # create & install console_scripts in <python>/bin
-          'console_scripts': ['moxy = moxy.main:main'],
+          #'console_scripts': ['moxy = moxy.main:main'],
+          'gui_scripts': ['moxy = moxy.main:main'],
           },
       )

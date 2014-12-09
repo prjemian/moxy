@@ -21,12 +21,12 @@ except:
 
 # TODO: consider caching
 
-FORMS_SUBDIRECTORY = 'forms'
+FORMS_SUBDIRECTORY = 'resources'
 FORM_CACHE = None
 
 
 def get_forms_path():
-    '''identify our FORMS_SUBDIRECTORY'''
+    '''identify our resources directory'''
     # assume this is less risky than __file__
     ref = inspect.getsourcefile(get_forms_path)
     path = os.path.abspath(os.path.dirname(ref))

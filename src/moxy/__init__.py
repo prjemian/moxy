@@ -17,6 +17,7 @@ __license__             = u'UChicago Argonne, LLC OPEN SOURCE LICENSE (see LICEN
 __url__                 = u'https://github.com/prjemian/moxy/'
 __download_url__        = __url__
 __keywords__            = ['EPICS', 'motor', 'tool']
+__requires__            = ['PySide>=1.2', 'PyEpics>=3.2', 'bcdaqwidgets>=0.1.1']
 
 __classifiers__ = [
             'Development Status :: 4 - Beta',
