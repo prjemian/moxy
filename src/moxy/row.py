@@ -4,7 +4,7 @@
 widget support for one row in a position table
 '''
 
-# Copyright (c) 2009 - 2014, UChicago Argonne, LLC.
+# Copyright (c) 2009 - 2015, UChicago Argonne, LLC.
 # See LICENSE file for details.
 
 

@@ -4,7 +4,7 @@
 (internal) support for forms defined in .ui files
 '''
 
-# Copyright (c) 2009 - 2014, UChicago Argonne, LLC.
+# Copyright (c) 2009 - 2015, UChicago Argonne, LLC.
 # See LICENSE file for details.
 
 

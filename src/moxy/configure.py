@@ -4,7 +4,7 @@
 MOXY: the Configure box
 '''
 
-# Copyright (c) 2009 - 2014, UChicago Argonne, LLC.
+# Copyright (c) 2009 - 2015, UChicago Argonne, LLC.
 # See LICENSE file for details.
 
 
@@ -17,7 +17,7 @@ import form_support
 
 CONFIGURE_UI_FILE = 'configure_pv.ui'  # name of screen description file, in forms subdirectory
 LOGO_FILE = 'epicslogo101.bmp'
-dialog_showing = False      # for singleton support
+_DIALOG_SHOWING_ = False      # for singleton support
 
 
 # TODO: need way to add/delete groups and positioners
@@ -27,10 +27,10 @@ dialog_showing = False      # for singleton support
 class ConfigureBox(object):
     
     def __init__(self):
-        global dialog_showing
-        if dialog_showing:
+        global _DIALOG_SHOWING_
+        if _DIALOG_SHOWING_:
             return          # enforce that this dialog is a singleton
-        dialog_showing = True
+        _DIALOG_SHOWING_ = True
 
         self.ui = form_support.load_form(CONFIGURE_UI_FILE)
         self._init_logo_()
@@ -39,7 +39,7 @@ class ConfigureBox(object):
 
         # TODO: apply changes only if QtGui.QDialog.Accepted
         self.ui.exec_()     # make this a modal dialog, blocking until the user closes it
-        dialog_showing = False
+        _DIALOG_SHOWING_ = False
     
     def _init_logo_(self):
         logo_file = os.path.join(form_support.get_forms_path(), LOGO_FILE)
