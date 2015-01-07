@@ -22,9 +22,7 @@ GROUP_COUNTER = 0
 MOXYMOTOR_COUNTER = 0
 
 
-# TODO: need way to add/delete groups and positioners
-# TODO: fill the QListView widget: self.ui.listView
-# TODO: change QListView to QTreeView?
+# TODO: need to delete groups and positioners
 
 class ConfigureBox(object):
     
@@ -37,20 +35,22 @@ class ConfigureBox(object):
         self.ui = form_support.load_form(CONFIGURE_UI_FILE)
         self._init_logo_()
         
-        self.groups = []
         self._initTreeWidget()
         self.selectedItem = None    # treeWidget item selected (or None)
+        self.selectedKind = None
         self._initActions()
-        self.createAxis()           # make at least one axis to start with
-        self.createAxis()           # make at least one axis to start with
-        self.createAxis()           # make at least one axis to start with
+        self.setButtonStates(False, False, False)
+        
+        self.createGroup()           # make at least one axis to start with
         
         self.ui.show()
 
         # make this a modal dialog, blocking until the user closes it
         if self.ui.exec_():
             # apply changes only if QtGui.QDialog.Accepted
-            print self.groups
+            for i in range(self.ui.treeWidget.topLevelItemCount()):
+                item = self.ui.treeWidget.topLevelItem(i)
+                print item.text(0)
             pass
         _DIALOG_SHOWING_ = False
     
@@ -76,24 +76,26 @@ class ConfigureBox(object):
     
     def doClicked(self, item, column):
         print 'Clicked', item, column, ' not handled yet'
+        _parent = item.parent()
         self.selectedItem = item
-        # TODO: enable push buttons based on selection
+        if item.parent() is None:
+            self.selectedKind = 'group'
+            self.setButtonStates(True, True, False)
+        else:
+            self.selectedKind = 'axis'
+            self.setButtonStates(False, True, True)
     
     def doCreateGroup(self):
         '''create a group'''
-        self.createAxis()
+        self.createGroup()
     
     def doCreateAxis(self):
         '''create a moxymotor axis within a group'''
         print 'Create', self.selectedItem
-        print 'self.selectedItem', type(self.selectedItem)
-        print 'self.groups', type(self.groups)
-        # FIXME: next test results in "NotImplementedError: operator not implemented."
-#         if self.selectedItem in self.groups:  # only if a group is selected
-#             print ' not handled yet'
-#             # self.createMoxyMotor(group)
-#         else:
-#             print 'Create', self.selectedItem, ' not allowed for `axis`'
+        if self.selectedItem is None:
+            return
+        group = self.selectedItem.parent() or self.selectedItem
+        self.createMoxyMotor(group)
     
     def doPressed(self, item, column):
         print 'Pressed', item, column, ' not handled yet'
@@ -106,12 +108,13 @@ class ConfigureBox(object):
     def doSelectionChanged(self):
         print 'SelectionChanged'
         self.selectedItem = None
-        # TODO: disable push buttons based on selection
+        self.selectedKind = None
+        self.setButtonStates(False, False, False)
     
     def doGenericSignal(self, *args, **kw):
         print 'GenericSignal', args, kw, ' not handled yet'
     
-    def createAxis(self):
+    def createGroup(self):
         global GROUP_COUNTER
         GROUP_COUNTER += 1
         group = QtGui.QTreeWidgetItem(None)
@@ -120,13 +123,21 @@ class ConfigureBox(object):
         self.ui.treeWidget.addTopLevelItems([group,])
         self.ui.treeWidget.expandItem(group)
         # self.ui.treeWidget.setItemSelected(group, True)
-        self.groups.append(group)
     
     def createMoxyMotor(self, group):
         global MOXYMOTOR_COUNTER
         MOXYMOTOR_COUNTER += 1
         mmotor = QtGui.QTreeWidgetItem(group)
         mmotor.setText(0, 'motor ' + str(MOXYMOTOR_COUNTER))
+    
+    def setButtonStates(self, removeGroup=True, createAxis=True, removeAxis=True):
+        self._enableButton(self.ui.removeGroup, removeGroup)
+        self._enableButton(self.ui.createAxis, createAxis)
+        self._enableButton(self.ui.removeAxis, removeAxis)
+    
+    def _enableButton(self, button, state = True):
+        if button.isEnabled() != state:
+            button.setEnabled(state)
 
 
 if __name__ == '__main__':

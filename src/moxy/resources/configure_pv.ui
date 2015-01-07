@@ -88,7 +88,7 @@
         </column>
        </widget>
        <widget class="QWidget" name="verticalLayoutWidget_3">
-        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0">
+        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0,0">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
@@ -106,6 +106,19 @@
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -126,6 +139,19 @@
           </layout>
          </item>
          <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QLineEdit" name="axisTitle">
            <property name="toolTip">
             <string>name of this axis</string>
@@ -139,156 +165,161 @@
           </widget>
          </item>
          <item>
-          <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
-           <item row="2" column="1">
-            <widget class="QLineEdit" name="val">
-             <property name="toolTip">
-              <string>EPICS PV for the target (commanded) value</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-             <property name="placeholderText">
-              <string>EPICS PV name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QCheckBox" name="isMotor">
-             <property name="text">
-              <string>VAL is is a motor record</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLineEdit" name="desc">
-             <property name="toolTip">
-              <string>EPICS PV for the description</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-             <property name="placeholderText">
-              <string>EPICS PV name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="toolTip">
-              <string>EPICS PV that describes the target (commanded) position</string>
-             </property>
-             <property name="text">
-              <string>VAL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLineEdit" name="rbv">
-             <property name="toolTip">
-              <string>EPICS PV for the readback (current) value</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-             <property name="placeholderText">
-              <string>EPICS PV name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="toolTip">
-              <string>EPICS PV that describes the current readback (actual) position</string>
-             </property>
-             <property name="text">
-              <string>RBV</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="toolTip">
-              <string>EPICS PV that describes the engineering units</string>
-             </property>
-             <property name="text">
-              <string>EGU</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_5">
-             <property name="toolTip">
-              <string>EPICS PV that describes the positioner</string>
-             </property>
-             <property name="text">
-              <string>DESC</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="egu">
-             <property name="toolTip">
-              <string>EPICS PV for the engineering units</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-             <property name="placeholderText">
-              <string>EPICS PV name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_7">
-             <property name="toolTip">
-              <string>EPICS PV that says if the positioner is done moving (done=1)</string>
-             </property>
-             <property name="text">
-              <string>DMOV</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="0">
-            <widget class="QLabel" name="label_8">
-             <property name="toolTip">
-              <string>EPICS PV that tells the positioner to stop moving (sends a 1)</string>
-             </property>
-             <property name="text">
-              <string>STOP</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QLineEdit" name="dmov">
-             <property name="toolTip">
-              <string>EPICS PV for the done moving (done=1) value</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-             <property name="placeholderText">
-              <string>EPICS PV name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <widget class="QLineEdit" name="stop">
-             <property name="toolTip">
-              <string>EPICS PV for the stop command (sends a 1 to this PV)</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-             <property name="placeholderText">
-              <string>EPICS PV name</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QGroupBox" name="gbox">
+           <property name="title">
+            <string>axis configuration</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="val">
+              <property name="toolTip">
+               <string>EPICS PV for the target (commanded) value</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: bisque;</string>
+              </property>
+              <property name="placeholderText">
+               <string>EPICS PV name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QCheckBox" name="isMotor">
+              <property name="text">
+               <string>VAL is is a motor record</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="desc">
+              <property name="toolTip">
+               <string>EPICS PV for the description</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: bisque;</string>
+              </property>
+              <property name="placeholderText">
+               <string>EPICS PV name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="toolTip">
+               <string>EPICS PV that describes the target (commanded) position</string>
+              </property>
+              <property name="text">
+               <string>VAL</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="rbv">
+              <property name="toolTip">
+               <string>EPICS PV for the readback (current) value</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: bisque;</string>
+              </property>
+              <property name="placeholderText">
+               <string>EPICS PV name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="toolTip">
+               <string>EPICS PV that describes the current readback (actual) position</string>
+              </property>
+              <property name="text">
+               <string>RBV</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="toolTip">
+               <string>EPICS PV that describes the engineering units</string>
+              </property>
+              <property name="text">
+               <string>EGU</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="toolTip">
+               <string>EPICS PV that describes the positioner</string>
+              </property>
+              <property name="text">
+               <string>DESC</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="egu">
+              <property name="toolTip">
+               <string>EPICS PV for the engineering units</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: bisque;</string>
+              </property>
+              <property name="placeholderText">
+               <string>EPICS PV name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_7">
+              <property name="toolTip">
+               <string>EPICS PV that says if the positioner is done moving (done=1)</string>
+              </property>
+              <property name="text">
+               <string>DMOV</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_8">
+              <property name="toolTip">
+               <string>EPICS PV that tells the positioner to stop moving (sends a 1)</string>
+              </property>
+              <property name="text">
+               <string>STOP</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLineEdit" name="dmov">
+              <property name="toolTip">
+               <string>EPICS PV for the done moving (done=1) value</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: bisque;</string>
+              </property>
+              <property name="placeholderText">
+               <string>EPICS PV name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLineEdit" name="stop">
+              <property name="toolTip">
+               <string>EPICS PV for the stop command (sends a 1 to this PV)</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: bisque;</string>
+              </property>
+              <property name="placeholderText">
+               <string>EPICS PV name</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -313,19 +344,6 @@
             </widget>
            </item>
           </layout>
-         </item>
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </widget>
