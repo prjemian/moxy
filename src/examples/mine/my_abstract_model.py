@@ -119,42 +119,42 @@ class MyAbstractModel(QtCore.QAbstractItemModel):
 		return None
 	
 	def index(self, row, column, parent):
-	    if not self.hasIndex(row, column, parent):
-	        return QtCore.QModelIndex()
+		if not self.hasIndex(row, column, parent):
+			return QtCore.QModelIndex()
 	
-	    if not parent.isValid():
-	        parentItem = self.rootItem
-	    else:
-	        parentItem = parent.internalPointer()
+		if not parent.isValid():
+			parentItem = self.rootItem
+		else:
+			parentItem = parent.internalPointer()
 	
-	    childItem = parentItem.child(row)
-	    if childItem:
-	        return self.createIndex(row, column, childItem)
-	    else:
-	        return QtCore.QModelIndex()
+		childItem = parentItem.child(row)
+		if childItem:
+			return self.createIndex(row, column, childItem)
+		else:
+			return QtCore.QModelIndex()
 	
 	def parent(self, index):
-	    if not index.isValid():
-	        return QtCore.QModelIndex()
+		if not index.isValid():
+			return QtCore.QModelIndex()
 	
-	    childItem = index.internalPointer()
-	    parentItem = childItem.parent()
+		childItem = index.internalPointer()
+		parentItem = childItem.parent()
 	
-	    if parentItem == self.rootItem:
-	        return QtCore.QModelIndex()
+		if parentItem == self.rootItem:
+			return QtCore.QModelIndex()
 	
-	    return self.createIndex(parentItem.row(), 0, parentItem)
+		return self.createIndex(parentItem.row(), 0, parentItem)
 	
 	def rowCount(self, parent):
-	    if parent.column() > 0:
-	        return 0
+		if parent.column() > 0:
+			return 0
 	
-	    if not parent.isValid():
-	        parentItem = self.rootItem
-	    else:
-	        parentItem = parent.internalPointer()
+		if not parent.isValid():
+			parentItem = self.rootItem
+		else:
+			parentItem = parent.internalPointer()
 	
-	    return parentItem.childCount()
+		return parentItem.childCount()
 
 	def setupModelData(self, lines, parent):
 		parents = [parent]
