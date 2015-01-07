@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>491</width>
-    <height>389</height>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,12 +80,90 @@
        <property name="childrenCollapsible">
         <bool>false</bool>
        </property>
-       <widget class="QTreeView" name="treeView"/>
+       <widget class="QTreeWidget" name="treeWidget">
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
        <widget class="QWidget" name="verticalLayoutWidget_3">
-        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0">
+        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0,0,0">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QPushButton" name="createGroup">
+             <property name="text">
+              <string>create group</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="removeGroup">
+             <property name="text">
+              <string>remove group</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QPushButton" name="createAxis">
+             <property name="text">
+              <string>create axis</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="removeAxis">
+             <property name="text">
+              <string>remove axis</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="axisTitle">
+           <property name="toolTip">
+            <string>name of this axis</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: mintcream;</string>
+           </property>
+           <property name="placeholderText">
+            <string>axis title</string>
+           </property>
+          </widget>
+         </item>
          <item>
           <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
-           <item row="3" column="1">
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="val">
+             <property name="toolTip">
+              <string>EPICS PV for the target (commanded) value</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: bisque;</string>
+             </property>
+             <property name="placeholderText">
+              <string>EPICS PV name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QCheckBox" name="isMotor">
+             <property name="text">
+              <string>VAL is is a motor record</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
             <widget class="QLineEdit" name="desc">
              <property name="toolTip">
               <string>EPICS PV for the description</string>
@@ -93,9 +171,12 @@
              <property name="styleSheet">
               <string notr="true">background-color: bisque;</string>
              </property>
+             <property name="placeholderText">
+              <string>EPICS PV name</string>
+             </property>
             </widget>
            </item>
-           <item row="1" column="0">
+           <item row="2" column="0">
             <widget class="QLabel" name="label_3">
              <property name="toolTip">
               <string>EPICS PV that describes the target (commanded) position</string>
@@ -105,7 +186,7 @@
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
+           <item row="3" column="1">
             <widget class="QLineEdit" name="rbv">
              <property name="toolTip">
               <string>EPICS PV for the readback (current) value</string>
@@ -113,9 +194,12 @@
              <property name="styleSheet">
               <string notr="true">background-color: bisque;</string>
              </property>
+             <property name="placeholderText">
+              <string>EPICS PV name</string>
+             </property>
             </widget>
            </item>
-           <item row="2" column="0">
+           <item row="3" column="0">
             <widget class="QLabel" name="label_4">
              <property name="toolTip">
               <string>EPICS PV that describes the current readback (actual) position</string>
@@ -125,17 +209,7 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QLineEdit" name="val">
-             <property name="toolTip">
-              <string>EPICS PV for the target (commanded) value</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: bisque;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
+           <item row="5" column="0">
             <widget class="QLabel" name="label_6">
              <property name="toolTip">
               <string>EPICS PV that describes the engineering units</string>
@@ -145,7 +219,7 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
+           <item row="4" column="0">
             <widget class="QLabel" name="label_5">
              <property name="toolTip">
               <string>EPICS PV that describes the positioner</string>
@@ -155,7 +229,7 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="5" column="1">
             <widget class="QLineEdit" name="egu">
              <property name="toolTip">
               <string>EPICS PV for the engineering units</string>
@@ -163,9 +237,12 @@
              <property name="styleSheet">
               <string notr="true">background-color: bisque;</string>
              </property>
+             <property name="placeholderText">
+              <string>EPICS PV name</string>
+             </property>
             </widget>
            </item>
-           <item row="5" column="0">
+           <item row="6" column="0">
             <widget class="QLabel" name="label_7">
              <property name="toolTip">
               <string>EPICS PV that says if the positioner is done moving (done=1)</string>
@@ -175,7 +252,7 @@
              </property>
             </widget>
            </item>
-           <item row="6" column="0">
+           <item row="7" column="0">
             <widget class="QLabel" name="label_8">
              <property name="toolTip">
               <string>EPICS PV that tells the positioner to stop moving (sends a 1)</string>
@@ -185,7 +262,7 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="1">
+           <item row="6" column="1">
             <widget class="QLineEdit" name="dmov">
              <property name="toolTip">
               <string>EPICS PV for the done moving (done=1) value</string>
@@ -193,9 +270,12 @@
              <property name="styleSheet">
               <string notr="true">background-color: bisque;</string>
              </property>
+             <property name="placeholderText">
+              <string>EPICS PV name</string>
+             </property>
             </widget>
            </item>
-           <item row="6" column="1">
+           <item row="7" column="1">
             <widget class="QLineEdit" name="stop">
              <property name="toolTip">
               <string>EPICS PV for the stop command (sends a 1 to this PV)</string>
@@ -203,15 +283,8 @@
              <property name="styleSheet">
               <string notr="true">background-color: bisque;</string>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QCheckBox" name="isMotor">
-             <property name="text">
-              <string>VAL is is a motor record</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
+             <property name="placeholderText">
+              <string>EPICS PV name</string>
              </property>
             </widget>
            </item>
