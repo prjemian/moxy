@@ -48,10 +48,7 @@ class ConfigureBox(object):
         # make this a modal dialog, blocking until the user closes it
         if self.ui.exec_():
             # apply changes only if QtGui.QDialog.Accepted
-            for i in range(self.ui.treeWidget.topLevelItemCount()):
-                item = self.ui.treeWidget.topLevelItem(i)
-                print item.text(0)
-            pass
+            self.debrief()
         _DIALOG_SHOWING_ = False
     
     def _init_logo_(self):
@@ -60,22 +57,27 @@ class ConfigureBox(object):
         
     def _initActions(self):
         # TODO: combine the two create buttons
-        # TODO: combine the two remove buttons
         self.ui.createGroup.clicked.connect(self.doCreateGroup)
         self.ui.removeGroup.clicked.connect(self.doRemove)
         self.ui.createAxis.clicked.connect(self.doCreateAxis)
         self.ui.removeAxis.clicked.connect(self.doRemove)
         self.ui.treeWidget.itemSelectionChanged.connect(self.doSelectionChanged)
         self.ui.treeWidget.itemClicked.connect(self.doClicked)
-        self.ui.treeWidget.itemPressed.connect(self.doPressed)
+        # self.ui.treeWidget.itemPressed.connect(self.doPressed)
         
     def _initTreeWidget(self):
         treewidget = self.ui.treeWidget
         treewidget.setColumnCount(1)
         treewidget.setHeaderLabels(['axes groups --> moxy motors'])
     
+    def debrief(self):
+        for i in range(self.ui.treeWidget.topLevelItemCount()):
+            item = self.ui.treeWidget.topLevelItem(i)
+            print item.text(0)
+            for j in range(item.childCount()):
+                print '\t', item.child(j).text(0)
+    
     def doClicked(self, item, column):
-        print 'Clicked', item, column, ' not handled yet'
         _parent = item.parent()
         self.selectedItem = item
         if item.parent() is None:
@@ -91,22 +93,27 @@ class ConfigureBox(object):
     
     def doCreateAxis(self):
         '''create a moxymotor axis within a group'''
-        print 'Create', self.selectedItem
-        if self.selectedItem is None:
-            return
-        group = self.selectedItem.parent() or self.selectedItem
-        self.createMoxyMotor(group)
+        # print 'Create', self.selectedItem
+        self.createAxis()
     
     def doPressed(self, item, column):
         print 'Pressed', item, column, ' not handled yet'
         self.selectedItem = item
     
     def doRemove(self):
-        print 'Remove', self.selectedItem, ' not handled yet'
         # TODO: always confirm
+        if self.selectedItem is None: return
+        if self.selectedItem.parent() is None:
+            parent = self.ui.treeWidget
+            index = parent.indexOfTopLevelItem(self.selectedItem)
+            parent.takeTopLevelItem(index)
+        else:
+            group = self.selectedItem.parent()
+            index = group.indexOfChild(self.selectedItem)
+            group.takeChild(index)
     
     def doSelectionChanged(self):
-        print 'SelectionChanged'
+        # print 'SelectionChanged'
         self.selectedItem = None
         self.selectedKind = None
         self.setButtonStates(False, False, False)
@@ -123,6 +130,12 @@ class ConfigureBox(object):
         self.ui.treeWidget.addTopLevelItems([group,])
         self.ui.treeWidget.expandItem(group)
         # self.ui.treeWidget.setItemSelected(group, True)
+    
+    def createAxis(self):
+        if self.selectedItem is None:
+            return
+        group = self.selectedItem.parent() or self.selectedItem
+        self.createMoxyMotor(group)
     
     def createMoxyMotor(self, group):
         global MOXYMOTOR_COUNTER
