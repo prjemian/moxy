@@ -3,7 +3,7 @@ __package_name__        = u'moxy'
 __description__         = u'EPICS GUI support for a set of motor positions'
 __long_description__    = __description__
 
-__version__             = u'0.7.2'
+__version__             = u'0.7.3'
 __release__             = __version__
 __author__              = u'Pete R. Jemian'
 __email__               = u'jemian@anl.gov'
@@ -17,7 +17,9 @@ __license__             = u'UChicago Argonne, LLC OPEN SOURCE LICENSE (see LICEN
 __url__                 = u'https://github.com/prjemian/moxy/'
 __download_url__        = __url__
 __keywords__            = ['EPICS', 'motor', 'tool']
-__requires__            = ['PySide>=1.2', 'PyEpics>=3.2', 'bcdaqwidgets>=0.1.1']
+__requires__            = ['PyQt4>=4',      # this project developed with PyQt4 >= 4.11.3
+                           'PyEpics>=3.2', 
+                           'bcdaqwidgets>=2015.0413.0']
 
 __classifiers__ = [
             'Development Status :: 4 - Beta',

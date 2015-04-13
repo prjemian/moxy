@@ -8,7 +8,7 @@ MOXY: the Configure box
 # See LICENSE file for details.
 
 
-from PySide import QtGui, QtCore
+from PyQt4 import QtGui, QtCore
 import inspect
 import os
 import moxy

@@ -2,16 +2,12 @@
 
 
 '''
-PySide example MVC code
-
-starting from:
-see: 'http://pythoncentral.org/pyside-pyqt-tutorial-qlistview-and-qstandarditemmodel
+PyQt4 example MVC code
 '''
 
 
 import sys, os, pprint, time
-from PySide import QtCore
-from PySide import QtGui
+from PyQt4 import QtCore, QtGui
 import config
 import moxygroup
 

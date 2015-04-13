@@ -10,7 +10,7 @@ widget support for a group of a positioners
 
 import os
 import sys
-from PySide import QtGui
+from PyQt4 import QtGui
 import form_support
 import table
 

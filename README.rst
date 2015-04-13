@@ -24,13 +24,15 @@ but can be any type of EPICS PV that will accept a numeric value.
 
 *moxy* requires these Python packages:
 
-===============   =========   ====================================================================
-package           version     website
-===============   =========   ====================================================================
-*PySide*          >= v1.2     (Qt, http://pyside.org) 
-*PyEpics*         >= 3.2      (http://cars9.uchicago.edu/software/python/pyepics3/)
-*bcdaqwidgets*    >= 0.1.1    (http://subversion.xray.aps.anl.gov/admin_bcdaext/BcdaQWidgets)
-===============   =========   ====================================================================
+===============   ===============   ====================================================================
+package           version           website
+===============   ===============   ====================================================================
+*PyQt4*           >= 4              http://http://www.riverbankcomputing.com/software/pyqt/intro ([#]_)
+*PyEpics*         >= 3.2            http://cars9.uchicago.edu/software/python/pyepics3/
+*bcdaqwidgets*    >= 2015.0413.0    http://subversion.xray.aps.anl.gov/admin_bcdaext/BcdaQWidgets
+===============   ===============   ====================================================================
+
+.. [#] this project developed with PyQt4 >= 4.11.3
 
 And, this tool is useless without:
 * *EPICS* (http://www.aps.anl.gov/epics)

@@ -10,8 +10,7 @@ see: 'http://pythoncentral.org/pyside-pyqt-tutorial-qlistview-and-qstandarditemm
 
 
 import sys, os, pprint, time
-from PySide import QtCore
-from PySide import QtGui
+from PyQt4 import QtCore, QtGui
 
 
 class MyView(QtGui.QListView):

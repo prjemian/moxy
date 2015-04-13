@@ -10,7 +10,7 @@ widget support for a position table
 
 import os
 import sys
-from PySide import QtGui
+from PyQt4 import QtGui
 import row
 import form_support
 

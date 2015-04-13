@@ -10,13 +10,9 @@
 
 import os
 import inspect
-try:
-    from PySide import QtCore, QtUiTools
-    GUI_BACKEND = 'PySide'
-except:
-    # TODO: untested
-    from PyQt4 import QtGui, uic
-    GUI_BACKEND = 'PyQt4'
+# TODO: untested
+from PyQt4 import QtGui, uic, QtCore
+GUI_BACKEND = 'PyQt4'
 
 
 # TODO: consider caching
@@ -59,14 +55,7 @@ def loadUiWidget(uifilename, parent=None):
     if FORM_CACHE is None:
         FORM_CACHE = {}
     if uifilename not in FORM_CACHE:
-        if GUI_BACKEND == 'PySide':
-            loader = QtUiTools.QUiLoader()
-            uifile = QtCore.QFile(uifilename)
-            uifile.open(QtCore.QFile.ReadOnly)
-            ui = loader.load(uifile, parent)
-            uifile.close()
-        elif GUI_BACKEND == 'PyQt4':
-            ui = uic.loadUi(uifilename)
+        ui = uic.loadUi(uifilename)
         FORM_CACHE[uifilename] = ui
     else:
         ui = FORM_CACHE[uifilename]

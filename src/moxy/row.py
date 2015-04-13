@@ -9,7 +9,7 @@ widget support for one row in a position table
 
 
 import os
-from PySide import QtGui
+from PyQt4 import QtGui
 import form_support
 
 

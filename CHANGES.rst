@@ -4,6 +4,7 @@
 CHANGES
 =======
 
+:2015-04-13: v0.7.3 refactor PySide to PyQt4
 :2015-01-06: v0.7.2 - add URL button to About box
 :2014-12-08: v0.7.1 - moved to GitHub
 :2014-05-29: v0.7 - fresh restart of project with PySide and .ui files
